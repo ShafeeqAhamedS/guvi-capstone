@@ -2,10 +2,6 @@ const request = require('supertest');
 const { app, startServer, closeServer } = require('./index.js');
 
 describe('API Tests', function() {
-    
-    before(function(done) {
-        startServer(done);
-    });
 
     describe('GET /', function() {
         it('respond with hello world', function(done) {
