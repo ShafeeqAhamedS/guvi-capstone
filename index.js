@@ -20,16 +20,24 @@ app.get('/ready', function (req, res) {
 let server;
 
 function startServer(callback) {
-    server = app.listen(process.env.PORT || 3000, callback);
+    server = app.listen(process.env.PORT, callback);
 }
 
 function closeServer(callback) {
-    server.close(callback);
+    if (server) {
+        server.close((err) => {
+            if (err) {
+                console.error('Error closing server:', err);
+            }
+            callback(err); // Ensure the callback is called
+        });
+    } else {
+        callback(); // Call the callback immediately if the server is not running
+    }
 }
 
-startServer(() => {
-    console.log('Server is running on port', process.env.PORT || 3000);
-});
+
+console.log('Server is running on port', 3000);
 
 
 module.exports = { app, startServer, closeServer };
