@@ -10,7 +10,7 @@ app.get('/authors', function (req, res) {
 });
 
 app.get('/greetings', function (req, res) {
-    res.send('{ "response": ", all" }');
+    res.send('{ "response": "Welcome, all" }');
 });
 
 app.get('/ready', function (req, res) {
