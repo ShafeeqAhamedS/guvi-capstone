@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: capstone-nodeserver
-        image: shafeeq2804/capstone-node-demo:latest
+        image: shafeeq2804/capstone-node-project:latest
         ports:
         - containerPort: 3000
