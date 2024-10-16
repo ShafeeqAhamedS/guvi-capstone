@@ -24,7 +24,8 @@ app.get('/new', function (req, res) {
 let server;
 
 function startServer(callback) {
-    server = app.listen(process.env.PORT, callback);
+    // Ensure that the server listens on the specified port
+    server = app.listen(process.env.PORT || 3000, callback);
 }
 
 function closeServer(callback) {
@@ -40,7 +41,12 @@ function closeServer(callback) {
     }
 }
 
-
-app.listen(3000,console.log(`Server started running at http://localhost:${3000}/`))
+// Start the server only if this module is being run directly
+if (require.main === module) {
+    const port = process.env.PORT || 3000;
+    server = app.listen(port, () => {
+        console.log(`Server started running at http://localhost:${port}/`);
+    });
+}
 
 module.exports = { app, startServer, closeServer };
