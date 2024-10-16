@@ -17,6 +17,10 @@ app.get('/ready', function (req, res) {
     res.send('{ "response": " Great!, It works!" }');
 });
 
+app.get('/new', function (req, res) {
+    res.send('{ "response": " New API Endpoint!" }');
+});
+
 let server;
 
 function startServer(callback) {
