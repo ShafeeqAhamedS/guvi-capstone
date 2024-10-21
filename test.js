@@ -29,7 +29,7 @@ describe('API Tests', function() {
         it('respond with greetings', function(done) {
             request(app)
                 .get('/greetings')
-                .expect('{ "response": "Welcome, all" }')
+                .expect('{ "response": "Welcome, Shafeeq" }')
                 .end(done);
         });
     });
