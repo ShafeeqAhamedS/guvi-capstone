@@ -16,7 +16,7 @@ pipeline {
         SERVICE_NAME = "node-service"
         NAMESPACE = "default" // Kubernetes namespace
         KUBE_CONTEXT = "minikube" // Kubernetes context
-        KUBE_SERVER_URL = "https://127.0.0.1:55984" // Minikube server URL
+        KUBE_SERVER_URL = "https://127.0.0.1:51133" // Minikube server URL
         NODE_PORT = 5000 // Node application port
     }
 
@@ -58,20 +58,6 @@ pipeline {
                         currentBuild.result = 'FAILURE'
                         error("Stopping pipeline due to Docker build failure.")
                     }
-                }
-            }
-        }
-        stage('Push Docker Image to DockerHub') {
-            steps {
-                script {
-                    // Log in to DockerHub
-                    // bat """
-                    //    docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}
-                    // """
-                    // Push the Docker image to DockerHub
-                    // bat """
-                    //    docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
-                    //"""
                 }
             }
         }
