@@ -61,6 +61,20 @@ pipeline {
                 }
             }
         }
+        stage('Push Docker Image to DockerHub') {
+            steps {
+                script {
+                    // Log in to DockerHub
+                    bat """
+                        docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}
+                    """
+                    // Push the Docker image to DockerHub
+                    bat """
+                        docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+                    """
+                }
+            }
+        }
         stage('Deploy to Minikube') {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: KUBE_CONTEXT, credentialsId: 'minikube-jenkins-secret', namespace: NAMESPACE, restrictKubeConfigAccess: false, serverUrl: KUBE_SERVER_URL) {
