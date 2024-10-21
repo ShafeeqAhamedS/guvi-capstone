@@ -1,5 +1,4 @@
-# PROJECT TITLE
-Automated CI/CD Pipeline for a Web Application
+# Automated CI/CD Pipeline for a Web Application
 
 # OBJECTIVE
 Set up a fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline to test, build, and deploy a Node.js web application to a container orchestration platform.
