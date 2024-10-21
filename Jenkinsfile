@@ -65,13 +65,13 @@ pipeline {
             steps {
                 script {
                     // Log in to DockerHub
-                    bat """
-                        docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}
-                    """
+                    // bat """
+                    //    docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}
+                    // """
                     // Push the Docker image to DockerHub
-                    bat """
-                        docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
-                    """
+                    // bat """
+                    //    docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+                    //"""
                 }
             }
         }
